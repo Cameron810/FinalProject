@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - My Notes</title>
+</head>
+<body>
+
+  <h1>My Notes</h1>
+  <button id="logoutBtn">Logout</button>
+
+  <hr>
+
+  <!-- CREATE NOTE -->
+  <h2>Create a Note</h2>
+  <form id="createNoteForm">
+    <input type="text" id="noteText" placeholder="Enter your note..." required>
+    <button type="submit">Add Note</button>
+  </form>
+  <p id="createMsg" style="color:green;"></p>
+
+  <hr>
+
+  <!-- ALL NOTES -->
+  <h2>All Notes</h2>
+  <div id="notesList"></div>
+
+  <!-- EDIT NOTE (hidden until user clicks Edit) -->
+  <div id="editSection" style="display:none;">
+    <hr>
+    <h2>Edit Note</h2>
+    <input type="text" id="editNoteText" placeholder="Updated text...">
+    <input type="hidden" id="editNoteId">
+    <button id="saveEditBtn">Save</button>
+    <button id="cancelEditBtn">Cancel</button>
+    <p id="editMsg" style="color:green;"></p>
+  </div>
+
+  <script src="js/notes.js"></script>
+</body>
+</html>
