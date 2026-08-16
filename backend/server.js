@@ -59,7 +59,9 @@ app.use('/api/users', require('./routes/userRoutes'))
 app.use(errorHandler)
 
 // ── Start Server--------------------------
-app.listen(port, () => console.log(`Server started on port ${port}`))
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server started on port ${port}`)
+})
 
 
 // few points to understand: 
