@@ -49,6 +49,7 @@ app.use(express.static(path.join(__dirname, '../frontend')))
 // All routes defined in noteRoutes.js are prefixed with /api/notes
 // All routes defined in userRoutes.js are prefixed with /api/users
 app.use('/api/notes', require('./routes/noteRoutes'))
+app.use('/api/students', require('./routes/studentRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 
 // ── Global Error Handler --------------------------

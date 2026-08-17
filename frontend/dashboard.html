@@ -2,40 +2,270 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard - My Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RSO Student Management</title>
+
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-  <h1>My Notes</h1>
-  <button id="logoutBtn">Logout</button>
+  <div class="admin-layout">
 
-  <hr>
+    <!-- ===== SIDEBAR ===== -->
 
-  <!-- CREATE NOTE -->
-  <h2>Create a Note</h2>
-  <form id="createNoteForm">
-    <input type="text" id="noteText" placeholder="Enter your note..." required>
-    <button type="submit">Add Note</button>
-  </form>
-  <p id="createMsg" style="color:green;"></p>
+    <aside class="sidebar">
 
-  <hr>
+      <div class="sidebar-header">
+        <h1>RSO Admin</h1>
+        <p id="sidebarRsoName">Loading...</p>
+      </div>
 
-  <!-- ALL NOTES -->
-  <h2>All Notes</h2>
-  <div id="notesList"></div>
+      <nav class="sidebar-nav">
 
-  <!-- EDIT NOTE (hidden until user clicks Edit) -->
-  <div id="editSection" style="display:none;">
-    <hr>
-    <h2>Edit Note</h2>
-    <input type="text" id="editNoteText" placeholder="Updated text...">
-    <input type="hidden" id="editNoteId">
-    <button id="saveEditBtn">Save</button>
-    <button id="cancelEditBtn">Cancel</button>
-    <p id="editMsg" style="color:green;"></p>
+        <a href="#" class="nav-link active">
+          Dashboard
+        </a>
+
+        <a href="#students" class="nav-link">
+          Students
+        </a>
+
+      </nav>
+
+      <button id="logoutBtn" class="logout-btn">
+        Logout
+      </button>
+
+    </aside>
+
+
+    <!-- ===== MAIN CONTENT ===== -->
+
+    <main class="main-content">
+
+      <!-- Header -->
+
+      <header class="dashboard-header">
+
+        <div>
+          <p class="eyebrow">Student Organization</p>
+          <h2 id="rsoName">Loading...</h2>
+        </div>
+
+        <div class="admin-info">
+          <span>Administrator</span>
+          <strong id="username">Loading...</strong>
+        </div>
+
+      </header>
+
+
+      <!-- Dashboard Overview -->
+
+      <section class="dashboard-overview">
+
+        <div class="stat-card">
+
+          <span class="stat-label">
+            Total Students
+          </span>
+
+          <strong id="studentCount">
+            0
+          </strong>
+
+        </div>
+
+        <div class="stat-card">
+
+          <span class="stat-label">
+            Organization
+          </span>
+
+          <strong id="statRsoName">
+            Loading...
+          </strong>
+
+        </div>
+
+      </section>
+
+
+      <!-- Student Management -->
+
+      <section id="students" class="content-card">
+
+        <div class="section-header">
+
+          <div>
+            <p class="eyebrow">Management</p>
+            <h3>Students</h3>
+          </div>
+
+          <button id="showAddStudentBtn" class="primary-btn">
+            + Add Student
+          </button>
+
+        </div>
+
+
+        <!-- ===== ADD STUDENT FORM ===== -->
+
+        <div id="studentFormSection" class="form-panel hidden">
+
+          <h3 id="studentFormTitle">
+            Add Student
+          </h3>
+
+          <form id="studentForm">
+
+            <input
+              type="hidden"
+              id="studentDatabaseId"
+            >
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label for="studentId">
+                  Student ID
+                </label>
+
+                <input
+                  type="text"
+                  id="studentId"
+                  placeholder="e.g. 123456"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="firstName">
+                  First Name
+                </label>
+
+                <input
+                  type="text"
+                  id="firstName"
+                  placeholder="First name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="lastName">
+                  Last Name
+                </label>
+
+                <input
+                  type="text"
+                  id="lastName"
+                  placeholder="Last name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="studentEmail">
+                  Email
+                </label>
+
+                <input
+                  type="email"
+                  id="studentEmail"
+                  placeholder="student@svsu.edu"
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+              <button
+                type="submit"
+                id="saveStudentBtn"
+                class="primary-btn"
+              >
+                Add Student
+              </button>
+
+              <button
+                type="button"
+                id="cancelStudentBtn"
+                class="secondary-btn"
+              >
+                Cancel
+              </button>
+
+            </div>
+
+          </form>
+
+          <p id="studentFormMessage"></p>
+
+        </div>
+
+
+        <!-- ===== STUDENT TABLE ===== -->
+
+        <div class="table-container">
+
+          <table>
+
+            <thead>
+
+              <tr>
+
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody id="studentsTableBody">
+
+              <tr>
+
+                <td
+                  colspan="4"
+                  class="empty-state"
+                >
+                  Loading students...
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+    </main>
+
   </div>
 
-  <script src="js/notes.js"></script>
+
+  <script src="js/students.js"></script>
+
 </body>
 </html>
